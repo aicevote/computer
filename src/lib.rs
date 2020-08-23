@@ -35,7 +35,7 @@ struct Vote {
 }
 
 #[derive(Serialize, Deserialize)]
-#[serde(rename_all(deserialize = "snake_case"), deny_unknown_fields)]
+#[serde(deny_unknown_fields)]
 struct Request {
     themes: Vec<Theme>,
     votes: Vec<Vote>,
@@ -48,7 +48,6 @@ struct Transition {
 }
 
 #[derive(Serialize, Deserialize)]
-#[serde(rename_all(serialize = "camelCase"))]
 struct Response {
     theme_id: u64,
     percentage: Vec<f64>,

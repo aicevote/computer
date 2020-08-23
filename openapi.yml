@@ -1,0 +1,1124 @@
+openapi: 3.0.0
+info:
+  title: computer
+  version: '0.1'
+  license:
+    name: AGPL-3.0
+    url: 'https://www.gnu.org/licenses/agpl-3.0.txt'
+  description: "AICEVOTE's main program"
+  contact:
+    email: mail@yuji.ne.jp
+servers:
+  - url: 'https://computer.aicevote.com'
+paths:
+  '':
+    post:
+      summary: computer
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    theme_id:
+                      type: integer
+                    percentage:
+                      type: array
+                      items:
+                        type: number
+                    short_transition:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          timestamp:
+                            type: integer
+                          percentage:
+                            type: array
+                            items:
+                              type: number
+                    long_transition:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          timestamp:
+                            type: integer
+                          percentage:
+                            type: array
+                            items:
+                              type: number
+              examples:
+                example-1:
+                  value:
+                    - themeID: 0
+                      percentage:
+                        - 70.7769
+                        - 29.2231
+                      shortTransition:
+                        - timestamp: 1598183394707
+                          percentage:
+                            - 70.7769
+                            - 29.2231
+                        - timestamp: 1598179794707
+                          percentage:
+                            - 70.7437
+                            - 29.2563
+                        - timestamp: 1598176194707
+                          percentage:
+                            - 70.7103
+                            - 29.2897
+                        - timestamp: 1598172594707
+                          percentage:
+                            - 70.6767
+                            - 29.3233
+                        - timestamp: 1598168994707
+                          percentage:
+                            - 70.6428
+                            - 29.3572
+                        - timestamp: 1598165394707
+                          percentage:
+                            - 70.6086
+                            - 29.3914
+                        - timestamp: 1598161794707
+                          percentage:
+                            - 70.5742
+                            - 29.4258
+                        - timestamp: 1598158194707
+                          percentage:
+                            - 70.5396
+                            - 29.4604
+                        - timestamp: 1598154594707
+                          percentage:
+                            - 70.5047
+                            - 29.4953
+                        - timestamp: 1598150994707
+                          percentage:
+                            - 70.4695
+                            - 29.5305
+                        - timestamp: 1598147394707
+                          percentage:
+                            - 70.434
+                            - 29.566
+                        - timestamp: 1598143794707
+                          percentage:
+                            - 70.3983
+                            - 29.6017
+                        - timestamp: 1598140194707
+                          percentage:
+                            - 70.3623
+                            - 29.6377
+                        - timestamp: 1598136594707
+                          percentage:
+                            - 70.326
+                            - 29.674
+                        - timestamp: 1598132994707
+                          percentage:
+                            - 70.2895
+                            - 29.7105
+                        - timestamp: 1598129394707
+                          percentage:
+                            - 70.2527
+                            - 29.7473
+                        - timestamp: 1598125794707
+                          percentage:
+                            - 70.2155
+                            - 29.7845
+                        - timestamp: 1598122194707
+                          percentage:
+                            - 70.1781
+                            - 29.8219
+                        - timestamp: 1598118594707
+                          percentage:
+                            - 70.1405
+                            - 29.8595
+                        - timestamp: 1598114994707
+                          percentage:
+                            - 70.1025
+                            - 29.8975
+                        - timestamp: 1598111394707
+                          percentage:
+                            - 70.0642
+                            - 29.9358
+                        - timestamp: 1598107794707
+                          percentage:
+                            - 70.0256
+                            - 29.9744
+                        - timestamp: 1598104194707
+                          percentage:
+                            - 69.9867
+                            - 30.0133
+                        - timestamp: 1598100594707
+                          percentage:
+                            - 69.9476
+                            - 30.0524
+                        - timestamp: 1598096994707
+                          percentage:
+                            - 69.9081
+                            - 30.0919
+                        - timestamp: 1598093394707
+                          percentage:
+                            - 69.8683
+                            - 30.1317
+                        - timestamp: 1598089794707
+                          percentage:
+                            - 69.8281
+                            - 30.1719
+                        - timestamp: 1598086194707
+                          percentage:
+                            - 69.7877
+                            - 30.2123
+                        - timestamp: 1598082594707
+                          percentage:
+                            - 69.7469
+                            - 30.2531
+                        - timestamp: 1598078994707
+                          percentage:
+                            - 69.7058
+                            - 30.2942
+                        - timestamp: 1598075394707
+                          percentage:
+                            - 69.6644
+                            - 30.3356
+                        - timestamp: 1598071794707
+                          percentage:
+                            - 69.6227
+                            - 30.3773
+                        - timestamp: 1598068194707
+                          percentage:
+                            - 69.5806
+                            - 30.4194
+                        - timestamp: 1598064594707
+                          percentage:
+                            - 69.5381
+                            - 30.4619
+                        - timestamp: 1598060994707
+                          percentage:
+                            - 69.4954
+                            - 30.5046
+                        - timestamp: 1598057394707
+                          percentage:
+                            - 69.4523
+                            - 30.5477
+                        - timestamp: 1598053794707
+                          percentage:
+                            - 69.4088
+                            - 30.5912
+                        - timestamp: 1598050194707
+                          percentage:
+                            - 69.3649
+                            - 30.6351
+                        - timestamp: 1598046594707
+                          percentage:
+                            - 69.3208
+                            - 30.6792
+                        - timestamp: 1598042994707
+                          percentage:
+                            - 69.2762
+                            - 30.7238
+                        - timestamp: 1598039394707
+                          percentage:
+                            - 69.2313
+                            - 30.7687
+                        - timestamp: 1598035794707
+                          percentage:
+                            - 69.186
+                            - 30.814
+                        - timestamp: 1598032194707
+                          percentage:
+                            - 69.1403
+                            - 30.8597
+                        - timestamp: 1598028594707
+                          percentage:
+                            - 69.0943
+                            - 30.9057
+                        - timestamp: 1598024994707
+                          percentage:
+                            - 69.0479
+                            - 30.9521
+                        - timestamp: 1598021394707
+                          percentage:
+                            - 69.0011
+                            - 30.9989
+                        - timestamp: 1598017794707
+                          percentage:
+                            - 68.9539
+                            - 31.0461
+                        - timestamp: 1598014194707
+                          percentage:
+                            - 68.9063
+                            - 31.0937
+                        - timestamp: 1598010594707
+                          percentage:
+                            - 68.8583
+                            - 31.1417
+                        - timestamp: 1598006994707
+                          percentage:
+                            - 68.8098
+                            - 31.1902
+                        - timestamp: 1598003394707
+                          percentage:
+                            - 68.761
+                            - 31.239
+                        - timestamp: 1597999794707
+                          percentage:
+                            - 68.7118
+                            - 31.2882
+                        - timestamp: 1597996194707
+                          percentage:
+                            - 68.6622
+                            - 31.3378
+                        - timestamp: 1597992594707
+                          percentage:
+                            - 68.6121
+                            - 31.3879
+                        - timestamp: 1597988994707
+                          percentage:
+                            - 68.5616
+                            - 31.4384
+                        - timestamp: 1597985394707
+                          percentage:
+                            - 68.5107
+                            - 31.4893
+                        - timestamp: 1597981794707
+                          percentage:
+                            - 68.4593
+                            - 31.5407
+                        - timestamp: 1597978194707
+                          percentage:
+                            - 68.4075
+                            - 31.5925
+                        - timestamp: 1597974594707
+                          percentage:
+                            - 68.3553
+                            - 31.6447
+                        - timestamp: 1597970994707
+                          percentage:
+                            - 68.3026
+                            - 31.6974
+                      longTransition:
+                        - timestamp: 1598183394707
+                          percentage:
+                            - 70.7769
+                            - 29.2231
+                        - timestamp: 1598096994707
+                          percentage:
+                            - 69.9081
+                            - 30.0919
+                        - timestamp: 1598010594707
+                          percentage:
+                            - 68.8583
+                            - 31.1417
+                        - timestamp: 1597924194707
+                          percentage:
+                            - 67.5747
+                            - 32.4253
+                        - timestamp: 1597837794707
+                          percentage:
+                            - 65.9974
+                            - 34.0026
+                        - timestamp: 1597751394707
+                          percentage:
+                            - 64.1074
+                            - 35.8926
+                        - timestamp: 1597664994707
+                          percentage:
+                            - 58.7041
+                            - 41.2959
+                        - timestamp: 1597578594707
+                          percentage:
+                            - 82.5331
+                            - 17.4669
+                        - timestamp: 1597492194707
+                          percentage:
+                            - 82.6942
+                            - 17.3058
+                        - timestamp: 1597405794707
+                          percentage:
+                            - 82.88
+                            - 17.12
+                        - timestamp: 1597319394707
+                          percentage:
+                            - 83.0986
+                            - 16.9014
+                        - timestamp: 1597232994707
+                          percentage:
+                            - 83.3628
+                            - 16.6372
+                        - timestamp: 1597146594707
+                          percentage:
+                            - 83.6938
+                            - 16.3062
+                        - timestamp: 1597060194707
+                          percentage:
+                            - 84.1302
+                            - 15.8698
+                        - timestamp: 1596973794707
+                          percentage:
+                            - 84.7499
+                            - 15.2501
+                        - timestamp: 1596887394707
+                          percentage:
+                            - 85.7358
+                            - 14.2642
+                        - timestamp: 1596800994707
+                          percentage:
+                            - 87.5545
+                            - 12.4455
+                        - timestamp: 1596714594707
+                          percentage:
+                            - 86.2579
+                            - 13.7421
+                        - timestamp: 1596628194707
+                          percentage:
+                            - 88.2904
+                            - 11.7096
+                        - timestamp: 1596541794707
+                          percentage:
+                            - 83.4898
+                            - 16.5102
+                        - timestamp: 1596455394707
+                          percentage:
+                            - 83.8332
+                            - 16.1668
+                        - timestamp: 1596368994707
+                          percentage:
+                            - 84.2966
+                            - 15.7034
+                        - timestamp: 1596282594707
+                          percentage:
+                            - 84.9807
+                            - 15.0193
+                        - timestamp: 1596196194707
+                          percentage:
+                            - 86.1395
+                            - 13.8605
+                        - timestamp: 1596109794707
+                          percentage:
+                            - 88.1691
+                            - 11.8309
+                        - timestamp: 1596023394707
+                          percentage:
+                            - 84.3057
+                            - 15.6943
+                        - timestamp: 1595936994707
+                          percentage:
+                            - 84.7848
+                            - 15.2152
+                        - timestamp: 1595850594707
+                          percentage:
+                            - 85.4728
+                            - 14.5272
+                        - timestamp: 1595764194707
+                          percentage:
+                            - 86.6059
+                            - 13.3941
+                        - timestamp: 1595677794707
+                          percentage:
+                            - 88.5132
+                            - 11.4868
+                        - timestamp: 1595591394707
+                          percentage:
+                            - 83.7702
+                            - 16.2298
+                        - timestamp: 1595504994707
+                          percentage:
+                            - 84.0743
+                            - 15.9257
+                        - timestamp: 1595418594707
+                          percentage:
+                            - 84.4453
+                            - 15.5547
+                        - timestamp: 1595332194707
+                          percentage:
+                            - 84.9201
+                            - 15.0799
+                        - timestamp: 1595245794707
+                          percentage:
+                            - 85.5746
+                            - 14.4254
+                        - timestamp: 1595159394707
+                          percentage:
+                            - 86.5957
+                            - 13.4043
+                        - timestamp: 1595072994707
+                          percentage:
+                            - 88.4056
+                            - 11.5944
+                        - timestamp: 1594986594707
+                          percentage:
+                            - 84.3944
+                            - 15.6056
+                        - timestamp: 1594900194707
+                          percentage:
+                            - 84.8276
+                            - 15.1724
+                        - timestamp: 1594813794707
+                          percentage:
+                            - 85.3788
+                            - 14.6212
+                        - timestamp: 1594727394707
+                          percentage:
+                            - 86.1322
+                            - 13.8678
+                        - timestamp: 1594640994707
+                          percentage:
+                            - 87.2965
+                            - 12.7035
+                        - timestamp: 1594554594707
+                          percentage:
+                            - 85.0278
+                            - 14.9722
+                        - timestamp: 1594468194707
+                          percentage:
+                            - 85.6629
+                            - 14.3371
+                        - timestamp: 1594381794707
+                          percentage:
+                            - 86.5226
+                            - 13.4774
+                        - timestamp: 1594295394707
+                          percentage:
+                            - 87.8051
+                            - 12.1949
+                        - timestamp: 1594208994707
+                          percentage:
+                            - 89.7979
+                            - 10.2021
+                        - timestamp: 1594122594707
+                          percentage:
+                            - 88.4047
+                            - 11.5953
+                        - timestamp: 1594036194707
+                          percentage:
+                            - 85.0117
+                            - 14.9883
+                        - timestamp: 1593949794707
+                          percentage:
+                            - 85.8444
+                            - 14.1556
+                        - timestamp: 1593863394707
+                          percentage:
+                            - 87.0185
+                            - 12.9815
+                        - timestamp: 1593776994707
+                          percentage:
+                            - 88.827
+                            - 11.173
+                        - timestamp: 1593690594707
+                          percentage:
+                            - 85.3645
+                            - 14.6355
+                        - timestamp: 1593604194707
+                          percentage:
+                            - 82.0556
+                            - 17.9444
+                        - timestamp: 1593517794707
+                          percentage:
+                            - 82.3977
+                            - 17.6023
+                        - timestamp: 1593431394707
+                          percentage:
+                            - 82.8406
+                            - 17.1594
+                        - timestamp: 1593344994707
+                          percentage:
+                            - 83.4514
+                            - 16.5486
+                        - timestamp: 1593258594707
+                          percentage:
+                            - 84.3835
+                            - 15.6165
+                        - timestamp: 1593172194707
+                          percentage:
+                            - 86.0417
+                            - 13.9583
+                        - timestamp: 1593085794707
+                          percentage:
+                            - 82.3822
+                            - 17.6178
+                    - themeID: 1
+                      percentage:
+                        - 66.302
+                        - 33.698
+                      shortTransition:
+                        - timestamp: 1598183424981
+                          percentage:
+                            - 66.302
+                            - 33.698
+                        - timestamp: 1598179824981
+                          percentage:
+                            - 66.2726
+                            - 33.7274
+                        - timestamp: 1598176224981
+                          percentage:
+                            - 66.243
+                            - 33.757
+                        - timestamp: 1598172624981
+                          percentage:
+                            - 66.2132
+                            - 33.7868
+                        - timestamp: 1598169024981
+                          percentage:
+                            - 66.1832
+                            - 33.8168
+                        - timestamp: 1598165424981
+                          percentage:
+                            - 66.153
+                            - 33.847
+                        - timestamp: 1598161824981
+                          percentage:
+                            - 66.1226
+                            - 33.8774
+                        - timestamp: 1598158224981
+                          percentage:
+                            - 66.092
+                            - 33.908
+                        - timestamp: 1598154624981
+                          percentage:
+                            - 66.0611
+                            - 33.9389
+                        - timestamp: 1598151024981
+                          percentage:
+                            - 66.03
+                            - 33.97
+                        - timestamp: 1598147424981
+                          percentage:
+                            - 65.9987
+                            - 34.0013
+                        - timestamp: 1598143824981
+                          percentage:
+                            - 65.9672
+                            - 34.0328
+                        - timestamp: 1598140224981
+                          percentage:
+                            - 65.9354
+                            - 34.0646
+                        - timestamp: 1598136624981
+                          percentage:
+                            - 65.9034
+                            - 34.0966
+                        - timestamp: 1598133024981
+                          percentage:
+                            - 65.8711
+                            - 34.1289
+                        - timestamp: 1598129424981
+                          percentage:
+                            - 65.8386
+                            - 34.1614
+                        - timestamp: 1598125824981
+                          percentage:
+                            - 65.8059
+                            - 34.1941
+                        - timestamp: 1598122224981
+                          percentage:
+                            - 65.7729
+                            - 34.2271
+                        - timestamp: 1598118624981
+                          percentage:
+                            - 65.7396
+                            - 34.2604
+                        - timestamp: 1598115024981
+                          percentage:
+                            - 65.7061
+                            - 34.2939
+                        - timestamp: 1598111424981
+                          percentage:
+                            - 65.6723
+                            - 34.3277
+                        - timestamp: 1598107824981
+                          percentage:
+                            - 65.6383
+                            - 34.3617
+                        - timestamp: 1598104224981
+                          percentage:
+                            - 65.6039
+                            - 34.3961
+                        - timestamp: 1598100624981
+                          percentage:
+                            - 65.5693
+                            - 34.4307
+                        - timestamp: 1598097024981
+                          percentage:
+                            - 65.5344
+                            - 34.4656
+                        - timestamp: 1598093424981
+                          percentage:
+                            - 65.4992
+                            - 34.5008
+                        - timestamp: 1598089824981
+                          percentage:
+                            - 65.4638
+                            - 34.5362
+                        - timestamp: 1598086224981
+                          percentage:
+                            - 65.428
+                            - 34.572
+                        - timestamp: 1598082624981
+                          percentage:
+                            - 65.3919
+                            - 34.6081
+                        - timestamp: 1598079024981
+                          percentage:
+                            - 65.3555
+                            - 34.6445
+                        - timestamp: 1598075424981
+                          percentage:
+                            - 65.3187
+                            - 34.6813
+                        - timestamp: 1598071824981
+                          percentage:
+                            - 65.2817
+                            - 34.7183
+                        - timestamp: 1598068224981
+                          percentage:
+                            - 65.2443
+                            - 34.7557
+                        - timestamp: 1598064624981
+                          percentage:
+                            - 65.2065
+                            - 34.7935
+                        - timestamp: 1598061024981
+                          percentage:
+                            - 65.1684
+                            - 34.8316
+                        - timestamp: 1598057424981
+                          percentage:
+                            - 65.13
+                            - 34.87
+                        - timestamp: 1598053824981
+                          percentage:
+                            - 65.0912
+                            - 34.9088
+                        - timestamp: 1598050224981
+                          percentage:
+                            - 65.052
+                            - 34.948
+                        - timestamp: 1598046624981
+                          percentage:
+                            - 65.0124
+                            - 34.9876
+                        - timestamp: 1598043024981
+                          percentage:
+                            - 64.9724
+                            - 35.0276
+                        - timestamp: 1598039424981
+                          percentage:
+                            - 64.9321
+                            - 35.0679
+                        - timestamp: 1598035824981
+                          percentage:
+                            - 64.8913
+                            - 35.1087
+                        - timestamp: 1598032224981
+                          percentage:
+                            - 64.8501
+                            - 35.1499
+                        - timestamp: 1598028624981
+                          percentage:
+                            - 64.8085
+                            - 35.1915
+                        - timestamp: 1598025024981
+                          percentage:
+                            - 64.7664
+                            - 35.2336
+                        - timestamp: 1598021424981
+                          percentage:
+                            - 64.7239
+                            - 35.2761
+                        - timestamp: 1598017824981
+                          percentage:
+                            - 64.6809
+                            - 35.3191
+                        - timestamp: 1598014224981
+                          percentage:
+                            - 64.6374
+                            - 35.3626
+                        - timestamp: 1598010624981
+                          percentage:
+                            - 64.5934
+                            - 35.4066
+                        - timestamp: 1598007024981
+                          percentage:
+                            - 64.5489
+                            - 35.4511
+                        - timestamp: 1598003424981
+                          percentage:
+                            - 64.5039
+                            - 35.4961
+                        - timestamp: 1597999824981
+                          percentage:
+                            - 64.4584
+                            - 35.5416
+                        - timestamp: 1597996224981
+                          percentage:
+                            - 64.4123
+                            - 35.5877
+                        - timestamp: 1597992624981
+                          percentage:
+                            - 64.3656
+                            - 35.6344
+                        - timestamp: 1597989024981
+                          percentage:
+                            - 64.3184
+                            - 35.6816
+                        - timestamp: 1597985424981
+                          percentage:
+                            - 64.2705
+                            - 35.7295
+                        - timestamp: 1597981824981
+                          percentage:
+                            - 64.222
+                            - 35.778
+                        - timestamp: 1597978224981
+                          percentage:
+                            - 64.1729
+                            - 35.8271
+                        - timestamp: 1597974624981
+                          percentage:
+                            - 64.1231
+                            - 35.8769
+                        - timestamp: 1597971024981
+                          percentage:
+                            - 64.0726
+                            - 35.9274
+                      longTransition:
+                        - timestamp: 1598183424981
+                          percentage:
+                            - 66.302
+                            - 33.698
+                        - timestamp: 1598097024981
+                          percentage:
+                            - 65.5344
+                            - 34.4656
+                        - timestamp: 1598010624981
+                          percentage:
+                            - 64.5934
+                            - 35.4066
+                        - timestamp: 1597924224981
+                          percentage:
+                            - 63.3409
+                            - 36.6591
+                        - timestamp: 1597837824981
+                          percentage:
+                            - 61.53
+                            - 38.47
+                        - timestamp: 1597751424981
+                          percentage:
+                            - 58.859
+                            - 41.141
+                        - timestamp: 1597665024981
+                          percentage:
+                            - 57.4287
+                            - 42.5713
+                        - timestamp: 1597578624981
+                          percentage:
+                            - 80.1191
+                            - 19.8809
+                        - timestamp: 1597492224981
+                          percentage:
+                            - 80.3364
+                            - 19.6636
+                        - timestamp: 1597405824981
+                          percentage:
+                            - 80.5883
+                            - 19.4117
+                        - timestamp: 1597319424981
+                          percentage:
+                            - 80.8833
+                            - 19.1167
+                        - timestamp: 1597233024981
+                          percentage:
+                            - 81.2332
+                            - 18.7668
+                        - timestamp: 1597146624981
+                          percentage:
+                            - 81.6547
+                            - 18.3453
+                        - timestamp: 1597060224981
+                          percentage:
+                            - 82.1722
+                            - 17.8278
+                        - timestamp: 1596973824981
+                          percentage:
+                            - 82.824
+                            - 17.176
+                        - timestamp: 1596887424981
+                          percentage:
+                            - 83.6742
+                            - 16.3258
+                        - timestamp: 1596801024981
+                          percentage:
+                            - 84.8407
+                            - 15.1593
+                        - timestamp: 1596714624981
+                          percentage:
+                            - 86.5717
+                            - 13.4283
+                        - timestamp: 1596628224981
+                          percentage:
+                            - 89.259
+                            - 10.741
+                        - timestamp: 1596541824981
+                          percentage:
+                            - 84.7013
+                            - 15.2987
+                        - timestamp: 1596455424981
+                          percentage:
+                            - 87.4482
+                            - 12.5518
+                        - timestamp: 1596369024981
+                          percentage:
+                            - 81.2089
+                            - 18.7911
+                        - timestamp: 1596282624981
+                          percentage:
+                            - 83.1389
+                            - 16.8611
+                        - timestamp: 1596196224981
+                          percentage:
+                            - 86.4588
+                            - 13.5412
+                        - timestamp: 1596109824981
+                          percentage:
+                            - 75.4634
+                            - 24.5366
+                        - timestamp: 1596023424981
+                          percentage:
+                            - 75.426
+                            - 24.574
+                        - timestamp: 1595937024981
+                          percentage:
+                            - 75.3878
+                            - 24.6122
+                        - timestamp: 1595850624981
+                          percentage:
+                            - 75.3487
+                            - 24.6513
+                        - timestamp: 1595764224981
+                          percentage:
+                            - 75.3089
+                            - 24.6911
+                        - timestamp: 1595677824981
+                          percentage:
+                            - 75.2684
+                            - 24.7316
+                        - timestamp: 1595591424981
+                          percentage:
+                            - 75.2272
+                            - 24.7728
+                        - timestamp: 1595505024981
+                          percentage:
+                            - 75.1854
+                            - 24.8146
+                        - timestamp: 1595418624981
+                          percentage:
+                            - 75.1432
+                            - 24.8568
+                        - timestamp: 1595332224981
+                          percentage:
+                            - 75.1008
+                            - 24.8992
+                        - timestamp: 1595245824981
+                          percentage:
+                            - 75.0584
+                            - 24.9416
+                        - timestamp: 1595159424981
+                          percentage:
+                            - 75.0167
+                            - 24.9833
+                        - timestamp: 1595073024981
+                          percentage:
+                            - 74.9763
+                            - 25.0237
+                        - timestamp: 1594986624981
+                          percentage:
+                            - 74.9383
+                            - 25.0617
+                        - timestamp: 1594900224981
+                          percentage:
+                            - 74.9049
+                            - 25.0951
+                        - timestamp: 1594813824981
+                          percentage:
+                            - 74.8792
+                            - 25.1208
+                        - timestamp: 1594727424981
+                          percentage:
+                            - 74.8671
+                            - 25.1329
+                        - timestamp: 1594641024981
+                          percentage:
+                            - 74.8798
+                            - 25.1202
+                        - timestamp: 1594554624981
+                          percentage:
+                            - 74.9398
+                            - 25.0602
+                        - timestamp: 1594468224981
+                          percentage:
+                            - 75.0979
+                            - 24.9021
+                        - timestamp: 1594381824981
+                          percentage:
+                            - 75.4816
+                            - 24.5184
+                        - timestamp: 1594295424981
+                          percentage:
+                            - 76.4648
+                            - 23.5352
+                        - timestamp: 1594209024981
+                          percentage:
+                            - 78.6105
+                            - 21.3895
+                        - timestamp: 1594122624981
+                          percentage:
+                            - 65.0934
+                            - 34.9066
+                        - timestamp: 1594036224981
+                          percentage:
+                            - 59.6683
+                            - 40.3317
+                        - timestamp: 1593949824981
+                          percentage:
+                            - 82.5768
+                            - 17.4232
+                        - timestamp: 1593863424981
+                          percentage:
+                            - 84.5238
+                            - 15.4762
+                        - timestamp: 1593777024981
+                          percentage:
+                            - 87.5235
+                            - 12.4765
+                        - timestamp: 1593690624981
+                          percentage:
+                            - 83.6551
+                            - 16.3449
+                        - timestamp: 1593604224981
+                          percentage:
+                            - 87.7261
+                            - 12.2739
+                        - timestamp: 1593517824981
+                          percentage:
+                            - 70.3548
+                            - 29.6452
+                        - timestamp: 1593431424981
+                          percentage:
+                            - 70.0151
+                            - 29.9849
+                        - timestamp: 1593345024981
+                          percentage:
+                            - 69.6314
+                            - 30.3686
+                        - timestamp: 1593258624981
+                          percentage:
+                            - 69.1924
+                            - 30.8076
+                        - timestamp: 1593172224981
+                          percentage:
+                            - 68.6823
+                            - 31.3177
+                        - timestamp: 1593085824981
+                          percentage:
+                            - 68.0781
+                            - 31.9219
+      operationId: post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                themes:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      theme_id:
+                        type: integer
+                        exclusiveMinimum: true
+                        minimum: 0
+                      choices:
+                        type: array
+                        items:
+                          type: string
+                      dr_class:
+                        type: integer
+                        minimum: 1
+                        maximum: 5
+                        exclusiveMinimum: true
+                        exclusiveMaximum: true
+                    required:
+                      - theme_id
+                      - choices
+                      - dr_class
+                votes:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      theme_id:
+                        type: integer
+                        minimum: 0
+                        exclusiveMinimum: true
+                      answer:
+                        type: integer
+                        exclusiveMinimum: true
+                        minimum: 0
+                      created_at:
+                        type: integer
+                        exclusiveMinimum: true
+                        minimum: 0
+                        description: use milliseconds
+                      expired_at:
+                        type: integer
+                        minimum: 0
+                        exclusiveMinimum: true
+                        description: |-
+                          use milliseconds
+                          if not expired, use 0
+                    required:
+                      - theme_id
+                      - answer
+                      - created_at
+                      - expired_at
+              required:
+                - themes
+                - votes
+            examples:
+              example-1:
+                value:
+                  themes:
+                    - theme_id: 0
+                      choices:
+                        - 賛成
+                        - 反対
+                      dr_class: 3
+                    - theme_id: 1
+                      choices:
+                        - 賛成
+                        - 反対
+                      dr_class: 3
+                  votes:
+                    - theme_id: 0
+                      answer: 1
+                      created_at: 1598187899442
+                      expired_at: 0
+                    - theme_id: 1
+                      answer: 0
+                      created_at: 1598101579841
+                      expired_at: 1598188014889
+        description: 'All valid themes & votes'
+      description: |-
+        AICEVOTE's main program
+        compute all results & transitions
+      parameters: []
+    parameters: []
+components:
+  schemas: {}
