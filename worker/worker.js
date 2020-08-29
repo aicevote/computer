@@ -8,10 +8,9 @@ addEventListener('fetch', event => {
  */
 async function handleRequest(request) {
   try {
-    const json = JSON.parse(request.body),
-      { computer } = wasm_bindgen;
+    const { computer } = wasm_bindgen;
     await wasm_bindgen(wasm);
-    return new Response(computer(json), {
+    return new Response(computer(await request.text(), Date.now()), {
       status: 200,
       headers: { "Content-Type": 'application/json; charset="UTF-8"' }
     });

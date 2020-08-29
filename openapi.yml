@@ -11,7 +11,7 @@ info:
 servers:
   - url: 'https://computer.aicevote.com'
 paths:
-  '':
+  /api:
     post:
       summary: computer
       responses:

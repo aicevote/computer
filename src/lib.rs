@@ -129,14 +129,15 @@ fn calc_transition(
 }
 
 #[wasm_bindgen]
-pub fn computer(request: &str) -> String {
+pub fn computer(request: &str, now: f64) -> String {
     let request: Request = serde_json::from_str(request).unwrap();
 
     let response: Vec<Response> = request
         .themes
         .iter()
         .map(|theme| {
-            let (short_transition, long_transition) = calc_transition(0, theme, &request.votes);
+            let (short_transition, long_transition) =
+                calc_transition(now as u64, theme, &request.votes);
             Response {
                 theme_id: theme.theme_id,
                 percentage: short_transition[0].percentage.clone(),
