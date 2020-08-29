@@ -2,7 +2,7 @@
 
 AICEVOTE's main program
 
-Document: https://computer.aicevote.com/
+Document: https://computer.aicevote.com/index.html
 
 ## Sample
 
