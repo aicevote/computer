@@ -19,14 +19,14 @@ cfg_if! {
 use serde::{Deserialize, Serialize};
 use serde_json::json;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Deserialize)]
 struct Theme {
     theme_id: u64,
     choices: Vec<String>,
     dr_class: u64,
 }
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Deserialize, Clone)]
 struct Vote {
     theme_id: u64,
     answer: u64,
@@ -34,20 +34,19 @@ struct Vote {
     expired_at: u64,
 }
 
-#[derive(Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
+#[derive(Deserialize)]
 struct Request {
     themes: Vec<Theme>,
     votes: Vec<Vote>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize)]
 struct Transition {
     timestamp: u64,
     percentage: Vec<f64>,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize)]
 struct Response {
     theme_id: u64,
     percentage: Vec<f64>,
