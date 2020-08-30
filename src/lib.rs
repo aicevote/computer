@@ -26,7 +26,7 @@ struct Theme {
     dr_class: u64,
 }
 
-#[derive(Deserialize, Clone)]
+#[derive(Deserialize)]
 struct Vote {
     theme_id: u64,
     answer: u64,
@@ -43,18 +43,18 @@ struct Request {
 #[derive(Serialize)]
 struct Transition {
     timestamp: u64,
-    percentage: Vec<f64>,
+    percentage: Vec<f32>,
 }
 
 #[derive(Serialize)]
 struct Response {
     theme_id: u64,
-    percentage: Vec<f64>,
+    percentage: Vec<f32>,
     short_transition: Vec<Transition>,
     long_transition: Vec<Transition>,
 }
 
-fn get_melting_rate(dr_class: u64) -> u64 {
+const fn get_melting_rate(dr_class: u64) -> u64 {
     match dr_class {
         1 => 2400 * 1000,
         2 => 7200 * 1000,
@@ -64,7 +64,7 @@ fn get_melting_rate(dr_class: u64) -> u64 {
     }
 }
 
-fn get_result_interval(dr_class: u64) -> u64 {
+const fn get_result_interval(dr_class: u64) -> u64 {
     match dr_class {
         1 => 400 * 1000,
         2 => 20 * 60 * 1000,
@@ -74,22 +74,22 @@ fn get_result_interval(dr_class: u64) -> u64 {
     }
 }
 
-fn eval_formula(elapsed: u64, melting_rate: u64) -> f64 {
-    let val = elapsed / melting_rate;
-    (4 * val + 5) as f64 / (val * val + 4 * val + 5) as f64
+fn eval_formula(elapsed: u64, melting_rate: u64) -> f32 {
+    let val = elapsed as f32 / melting_rate as f32;
+    (4.0 * val + 5.0) / (val * val + 4.0 * val + 5.0)
 }
 
-fn calc_result(now: u64, melting_rate: u64, num_of_choices: u64, votes: &Vec<Vote>) -> Vec<f64> {
-    let mut points: Vec<f64> = vec![0.0; num_of_choices as usize];
+fn calc_result(now: u64, melting_rate: u64, num_of_choices: u64, votes: &Vec<&Vote>) -> Vec<f32> {
+    let mut points: Vec<f32> = vec![0.0; num_of_choices as usize];
 
     votes
         .iter()
         .filter(|vote| vote.created_at <= now && (vote.expired_at == 0 || vote.expired_at > now))
         .for_each(|vote| {
-            points[vote.answer as usize] += eval_formula(now - vote.created_at, melting_rate)
+            points[vote.answer as usize] += eval_formula(now - vote.created_at, melting_rate);
         });
 
-    let sum: f64 = points.iter().sum();
+    let sum: f32 = points.iter().sum();
     points
         .iter()
         .map(|point| (point / sum * 1000000.0).round() / 10000.0)
@@ -106,7 +106,6 @@ fn calc_transition(
     let cur_votes = votes
         .iter()
         .filter(|vote| vote.theme_id == theme.theme_id)
-        .map(|vote| vote.clone())
         .collect();
     let callback = |i| {
         let timestamp = now - i * result_interval;
@@ -128,15 +127,15 @@ fn calc_transition(
 }
 
 #[wasm_bindgen]
-pub fn computer(request: &str, now: f64) -> String {
+pub fn computer(request: &str, now: f32) -> String {
     let request: Request = serde_json::from_str(request).unwrap();
+    let now = now as u64;
 
     let response: Vec<Response> = request
         .themes
         .iter()
         .map(|theme| {
-            let (short_transition, long_transition) =
-                calc_transition(now as u64, theme, &request.votes);
+            let (short_transition, long_transition) = calc_transition(now, theme, &request.votes);
             Response {
                 theme_id: theme.theme_id,
                 percentage: short_transition[0].percentage.clone(),

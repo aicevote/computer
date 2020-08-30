@@ -35,5 +35,13 @@ serde_json = "*"
 wasm-bindgen-test = "0.2"
 
 [profile.release]
-# Tell `rustc` to optimize for small code size.
-opt-level = "s"
+# Tell `rustc` to optimize for maximum speed.
+opt-level = 3
+debug = 0
+debug-assertions = false
+overflow-checks = false
+lto = true
+panic = "abort"
+incremental = false
+codegen-units = 16
+rpath = false
